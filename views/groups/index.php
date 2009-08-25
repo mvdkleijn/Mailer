@@ -45,8 +45,8 @@
 				echo '</tr>';
 			}
 		}
-	}
-
 ?>
 	</tbody>
 </table>
+
+<?php } ?>

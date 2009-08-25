@@ -21,6 +21,8 @@ It provides the following features:
 
 == NOTES ==
 
+* You need to enable mod_rewrite for it to work.
+
 * This plugin uses the 32px Mania icon set provided by the awesome Midtone Design:
   http://www.midtonedesign.com
 

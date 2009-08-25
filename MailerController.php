@@ -125,7 +125,7 @@ class MailerController extends PluginController {
 			}
 			else {
 				Flash::set('success', __(''.$email.' has been added to the list'));
-				redirect(get_url('plugin/mailer'));
+				redirect(get_url('plugin/mailer/members'));
 			}
 		}
 	}

@@ -36,6 +36,10 @@
 	} else {
 		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> There is a problem with the MailChimp API - have you set up your API key yet?</div>';
 	}
+	if(USE_MOD_REWRITE == FALSE) {
+		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> You need to enable mod_rewrite for this plugin to work.<br />Behaviour in the backend is unpredicatable without it enabled.<br />Please amend your config.php and .htaccess files</div>';
+	}
+
 ?>
 
 <p align="center"><img src="../wolf/plugins/mailer/images/mailChimp.png" align="middle" alt="Mail Chimp" /></p>
