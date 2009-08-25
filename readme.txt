@@ -22,21 +22,18 @@ It provides the following features:
 == NOTES ==
 
 * You need to enable mod_rewrite for it to work.
-
 * This plugin uses the 32px Mania icon set provided by the awesome Midtone Design:
   http://www.midtonedesign.com
-
 * You need a MailChimp account. You can sign up for a free test account to evaluate it
   and this plugin.
-
 * You need to set up the first list via the MailChimp interface. They do not allow lists
   to be created via their API.
-
 * The current limit for lists is 15,000. There's no pagination built in yet.
   Maybe later folks ;)
 
 == TODO ==
 
+* uninstall not working
 * Allow editing of email addresses
 * Consider using Webhooks and integrating with Dashboard plugin or create one for Mailer
 * Ability to search through Lists in admin section
@@ -44,6 +41,7 @@ It provides the following features:
 * Emails - optin/welcome/confirm
 * Batch Import/Exports of Lists from/to CSV Files
 * CAMPAIGNS!
+* Caching data
 
 * API Calls not used but look useful:
 	generateText

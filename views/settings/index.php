@@ -18,16 +18,6 @@
 			<td class="help">You need to get this from <a href="http://admin.mailchimp.com/account/api">MailChimp</a>.</td>
 		</tr>
 		<tr>
-			<td class="label"><label for="username">Username</label></td>
-			<td class="field"><input class="textbox" id="username" maxlength="64" name="username" size="64" type="text" value="<?php echo $settings['username']; ?>" /></td>
-			<td class="help">This is your username for MailChimp.</td>
-		</tr>
-		<tr>
-			<td class="label"><label for="password">Password</label></td>
-			<td class="field"><input class="textbox" id="password" maxlength="64" name="password" size="64" type="password" value="" /></td>
-			<td class="help">This is your password for MailChimp. Leave blank for no change.</td>
-		</tr>
-		<tr>
 			<td class="label"><label for="apiUrl">API URL</label></td>
 			<td class="field"><input class="textbox" id="apiUrl" maxlength="64" name="apiUrl" size="64" type="text" value="<?php echo $settings['apiUrl']; ?>" /></td>
 			<td class="help"><strong>You should only change this if you know what you're doing!</strong></td>
@@ -72,6 +62,11 @@
 			<td class="help">Show Campaign quicklinks in Sidebar.</td>
 		</tr>
 		<tr>
+			<td class="label"><label for="showFolders">Show Folders</label></td>
+			<td class="field"><input id="showFolders" name="showFolders" type="checkbox" value="1"<?php if($settings['showFolders'] == 1) { echo ' checked="checked"'; } ?> /></td>
+			<td class="help">Show Folder quicklinks in Sidebar.</td>
+		</tr>
+		<tr>
 			<td class="label"><label for="showLists">Show Lists</label></td>
 			<td class="field"><input id="showLists" name="showLists" type="checkbox" value="1"<?php if($settings['showLists'] == 1) { echo ' checked="checked"'; } ?> /></td>
 			<td class="help">Show List quicklinks in Sidebar.</td>
@@ -80,6 +75,11 @@
 			<td class="label"><label for="showGroups">Show Groups</label></td>
 			<td class="field"><input id="showGroups" name="showGroups" type="checkbox" value="1"<?php if($settings['showGroups'] == 1) { echo ' checked="checked"'; } ?> /></td>
 			<td class="help">Show Group quicklinks in Sidebar.</td>
+		</tr>
+		<tr>
+			<td class="label"><label for="showSearch">Show Search</label></td>
+			<td class="field"><input id="showSearch" name="showSearch" type="checkbox" value="1"<?php if($settings['showSearch'] == 1) { echo ' checked="checked"'; } ?> /></td>
+			<td class="help">Show Search box in Sidebar.</td>
 		</tr>
 		<tr>
 			<td class="label"><label for="submit">&nbsp;</label></td>

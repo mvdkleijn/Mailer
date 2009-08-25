@@ -40,6 +40,10 @@
 		<td class="label"><small>Plan Type</small></td>
 		<td class="field"><?php echo $account['plan_type']; ?></td>
 	</tr>
+	<tr>
+		<td class="label"><small>Times Logged in / API Calls</small></td>
+		<td class="field"><?php echo $account['times_logged_in']; ?></td>
+	</tr>
 <?php if($account['plan_type'] != 'monthly') { ?>
 	<tr>
 		<td class="label"><small>Emails Left</small></td>
@@ -61,10 +65,6 @@
 	<tr>
 		<td class="label"><small>First Payment</small></td>
 		<td class="field"><?php echo $account['first_payment']; ?></td>
-	</tr>
-	<tr>
-		<td class="label"><small>Times Logged in / API Calls</small></td>
-		<td class="field"><?php echo $account['times_logged_in']; ?></td>
 	</tr>
 	<tr>
 		<td class="label"><small>Last Login</small></td>

@@ -11,10 +11,6 @@ class MailerController extends PluginController {
 		$this->display('mailer/views/index');
 	}
 
-	public function campaigns() {
-		$this->display('mailer/views/campaigns/index');
-	}
-
 	public function account() {
 		$this->display('mailer/views/account/index');
 	}
@@ -23,9 +19,46 @@ class MailerController extends PluginController {
 		$this->display('mailer/views/settings/index');
 	}
 
+	public function campaigns() {
+		$this->display('mailer/views/campaigns/index');
+	}
+
+	function campaignDelete($cid) {
+		$settings = Plugin::getAllSettings('mailer');
+		$api = new MCAPI($settings['apikey']);
+		$delete = $api->campaignDelete($cid);
+		Flash::set('success', __('This campaign has been deleted'));
+		redirect(get_url('plugin/mailer/campaigns'));
+	}
+
+	public function folders($page) {
+		if($page == 'add') {
+			$this->display('mailer/views/folders/add');
+		}
+		else {
+			$this->display('mailer/views/campaigns');
+		}
+	}
+
+	function folderAdd() {
+		$folderName = filter_var($_POST['folderName'], FILTER_SANITIZE_STRING);
+		if($folderName != '') {
+			$settings = Plugin::getAllSettings('mailer');
+			$api = new MCAPI($settings['apikey']);
+			$add = $api->createFolder($folderName);
+			Flash::set('success', __(''.$folderName.' has been added to your folders'));
+			redirect(get_url('plugin/mailer/folders'));
+		}
+		else {
+			Flash::set('error', __('You need to add a folder name'));
+			redirect(get_url('plugin/mailer/campaigns'));
+		}
+	}
+
+
 	function saveSettings() {
 		global $__CMS_CONN__;
-		$resets = array('showCampaigns','showLists','showGroups');
+		$resets = array('showCampaigns','showLists','showGroups', 'showFolders', 'showSearch');
 		foreach($resets as $reset) {
 			$sql = "	UPDATE ".TABLE_PREFIX."plugin_settings
 						SET	`value`='0'

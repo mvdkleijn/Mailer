@@ -3,7 +3,7 @@
 Plugin::setInfos(array(
 	'id'  			=> 'mailer',
 	'title'   		=> 'Mailer',
-	'description'	=> 'Newsletter Plugin for MailChimp API',
+	'description'	=> 'Newsletter Plugin using MailChimp\'s API',
 	'version' 		=> '0.1',
    	'license' 		=> 'GPL',
 	'author'  		=> 'Andrew Waters',
