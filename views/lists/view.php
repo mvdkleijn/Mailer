@@ -164,4 +164,5 @@
 	</tbody>
 </table>
 
-<p><a href="<?php echo get_url('plugin/mailer/lists'); ?>"><img src="../wolf/plugins/mailer/images/backButton.png" align="middle" alt="Back Button" /> Back to Lists</a></p>
+<p>&nbsp;</p>
+<p><a class="backButton" href="<?php echo get_url('plugin/mailer/lists'); ?>"><img src="../wolf/plugins/mailer/images/backButton.png" align="middle" alt="Back Button" /> Back to Lists</a></p>
