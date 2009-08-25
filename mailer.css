@@ -29,6 +29,17 @@
 	float: right;
 }
 
+.mailerSearchSubmit {
+	text-decoration: none;
+	font-weight: bold;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #d97408;
+	color: white;
+	padding: 10px;
+	border: none;
+}
+
 .createButton {
 	text-decoration: none;
 	font-weight: bold;
@@ -38,12 +49,12 @@
 	color: white;
 }
 
-.createButton:hover {
+.mailerSearchSubmit:hover, .createButton:hover {
 	color: white;
 	background-color: #ea8508;
 }
 
-.createButton:active {
+.mailerSearchSubmit:active, .createButton:active {
 	color: #f38e09;
 	background-color: #ca6507;
 }

@@ -12,7 +12,7 @@
 <div class="box">
 	<h2>Search</h2>
 	<form>
-		<p><input type="text" class="textbox" id="mailerSearch" /> <input type="submit" value="Search Now!" /></p>
+		<p><input type="text" class="textbox" id="mailerSearch" /> <input class="mailerSearchSubmit" type="submit" value="Search Now!" /></p>
 		<small>
 			<ul class="searchList">
 				<li><input type="checkbox" name="searchitems[]" checked="checked" value="campaigns" /> Campaigns</li>
