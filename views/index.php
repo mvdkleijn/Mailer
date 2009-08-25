@@ -34,7 +34,7 @@
 	if ($result == "Everything's Chimpy!") {
 		echo '<div class="abuseClear"><img src="../wolf/plugins/mailer/images/misc/abuseClear.png" align="center" alt="Clear!" /> The MailChimp API is currently up and running</div>';
 	} else {
-		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> There is a problem with the MailChimp API: '.$result.'</div>';
+		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> There is a problem with the MailChimp API - have you set up your API key yet?</div>';
 	}
 ?>
 

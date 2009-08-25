@@ -1,3 +1,4 @@
+<h1>Add a new group</h1>
 <?php
 
 	$settings = Plugin::getAllSettings('mailer');
@@ -5,8 +6,11 @@
 	$api = new MCAPI($settings['apikey']);
 	$lists = $api->lists();
 
+	if ($api->errorCode) {
+		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> There is a problem with the MailChimp API - have you set up your API key yet?<br />The plugin is receiving the response that '.$api->errorMessage.'</div>';
+	} else {
 ?>
-<h1><?php echo __('Add a new group'); ?></h1>
+
 
 <form action="<?php echo get_url('plugin/mailer/groupAdd'); ?>" method="post">
 	<table class="fieldset" cellpadding="0" cellspacing="0" border="0">
@@ -35,3 +39,4 @@
 		</tr>
 	</table>
 </form>
+<?php } ?>
