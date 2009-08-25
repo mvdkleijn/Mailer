@@ -14,11 +14,13 @@
 	<form>
 		<p><input type="text" class="textbox" id="mailerSearch" /> <input type="submit" value="Search Now!" /></p>
 		<small>
-			<input type="checkbox" name="searchitems[]" checked="checked" value="campaigns" /> Campaigns<br />
-			<input type="checkbox" name="searchitems[]" checked="checked" value="folders" /> Folders<br />
-			<input type="checkbox" name="searchitems[]" checked="checked" value="lists" /> Lists<br />
-			<input type="checkbox" name="searchitems[]" checked="checked" value="groups" /> Groups<br />
-			<input type="checkbox" name="searchitems[]" checked="checked" value="members" /> Members
+			<ul class="searchList">
+				<li><input type="checkbox" name="searchitems[]" checked="checked" value="campaigns" /> Campaigns</li>
+				<li><input type="checkbox" name="searchitems[]" checked="checked" value="folders" /> Folders</li>
+				<li><input type="checkbox" name="searchitems[]" checked="checked" value="lists" /> Lists</li>
+				<li><input type="checkbox" name="searchitems[]" checked="checked" value="groups" /> Groups</li>
+				<li><input type="checkbox" name="searchitems[]" checked="checked" value="members" /> Members</li>
+			</ul>
 		</small>
 	</form>
 </div>

@@ -34,9 +34,11 @@
 			<td class="help">Users last name</td>
 		</tr>
 		<tr>
-			<td class="label"><label for="email">Email address</label></td>
-			<td class="field"><input class="textbox" id="email" maxlength="64" name="email" size="64" type="hidden" value="<?php echo $member['email'] ?>" /><?php echo $member['email'] ?></td>
-			<td class="help">The users email address cannot be edited. You must delete this user and add a new one with the correct email address.</td>
+			<td class="label"><label for="newemail">Email address</label></td>
+			<td class="field">	<input class="textbox" id="email" maxlength="64" name="email" size="64" type="hidden" value="<?php echo $member['email'] ?>" />
+								<input class="textbox" id="newemail" maxlength="64" name="newemail" size="64" type="text" value="<?php echo $member['email'] ?>" />
+			</td>
+			<td class="help">Update this users email address.</td>
 		</tr>
 		<tr>
 			<td class="label"><label for="listid">List</label></td>

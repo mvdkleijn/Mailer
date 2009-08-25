@@ -34,9 +34,8 @@ It provides the following features:
 == TODO ==
 
 * uninstall not working
-* Allow editing of email addresses
 * Consider using Webhooks and integrating with Dashboard plugin or create one for Mailer
-* Ability to search through Lists in admin section
+* Ability to search in admin section
 * Form generation
 * Emails - optin/welcome/confirm
 * Batch Import/Exports of Lists from/to CSV Files

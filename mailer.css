@@ -17,6 +17,58 @@
 	padding: 10px;
 }
 
+#chimpHome {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	float: left;
+}
+
+#rightHome {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	float: right;
+}
+
+.createButton {
+	text-decoration: none;
+	font-weight: bold;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background-color: #d97408;
+	color: white;
+}
+
+.createButton:hover {
+	color: white;
+	background-color: #ea8508;
+}
+
+.createButton:active {
+	color: #f38e09;
+	background-color: #ca6507;
+}
+
+#campaign {
+	padding: 20px;
+	font-size: 1.5em;
+}
+
+#subscriber, #groups {
+	padding: 15px;
+	font-size: 1em;
+}
+
+#settings {
+	padding: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#search {
+	padding: 37px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
 
 /* http://www.alistapart.com/articles/accessibledatavisualization */
 	

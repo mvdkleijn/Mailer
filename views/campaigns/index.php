@@ -37,13 +37,24 @@
 	</thead>
 	<tbody>
 <?
-		foreach($campaigns as $campaign) {
-			if($_GET['folderid']) {
-				if($_GET['folderid'] == $campaign['folder_id']) {
+
+	if($_GET['folderid']) {
+		$revisedCampaigns = $campaigns;
+		$campaigns = array();
+		$i = 0;
+		foreach($revisedCampaigns as $revisedCampaign) {
+			if($_GET['folderid'] == $revisedCampaign['folder_id']) {
+				$campaigns[$i] = $revisedCampaign;
+				$i = $i + 1;
+			}
+		}
+	}
+
+	foreach($campaigns as $campaign) {
 			?>
 
 		<tr class="<?php echo odd_even(); ?>">
-			<td><?php echo $campaign['title'] ?></td>
+			<td><a href="<?php echo get_url('plugin/mailer/viewcampaign/'.$campaign['id'].''); ?>"><?php echo $campaign['title'] ?></a></td>
 			<td><?php echo ucwords($campaign['type']); ?></td>
 			<td><?php if($campaign['status'] == 'save') { ?>Draft<?php } elseif($campaign['status'] == 'sent') { ?>Sent on: <?php echo $campaign['send_time'] ?><?php } ?></td>
 			<td><?php
@@ -60,37 +71,11 @@
 			?></td>
 			<td><?php echo $campaign['emails_sent'] ?></td>
 			<td><?php if($campaign['status'] == 'sent') { ?><img src="../wolf/plugins/mailer/images/misc/reports.png" align="middle" alt="Reports" /><?php } else { ?><img src="../wolf/plugins/mailer/images/misc/reportsNA.png" align="middle" alt="No Reports Available" /><?php } ?></td>
-			<td><a href="<?php echo get_url('plugin/mailer/campaignDelete/'.$campaign['id'].'') ?>" onclick="return confirm('Are you sure you wish to delete the campaign <?php echo $campaign['title'] ?>?\n\nThis is NOT REVERSIBLE!')"><img src="images/icon-remove.gif" align="middle" alt="Delete" /></a> <img src="../wolf/plugins/mailer/images/campaignCopy.png" align="middle" alt="Copy this Campaign" /></td>
+			<td><a href="<?php echo get_url('plugin/mailer/campaignDelete/'.$campaign['id'].'') ?>" onclick="return confirm('Are you sure you wish to delete the campaign <?php echo $campaign['title'] ?>?\n\nThis is NOT REVERSIBLE!')"><img src="images/icon-remove.gif" align="bottom" alt="Delete" /></a> <small>Copy</small></td>
 		</tr>
 
 <?php
-				}
-			} else {
-		
-		?>
-		<tr class="<?php echo odd_even(); ?>">
-			<td><?php echo $campaign['title'] ?></td>
-			<td><?php echo ucwords($campaign['type']); ?></td>
-			<td><?php if($campaign['status'] == 'save') { ?>Draft<?php } elseif($campaign['status'] == 'sent') { ?>Sent on: <?php echo $campaign['send_time'] ?><?php } ?></td>
-			<td><?php
-					$folders = $api->campaignFolders();
-					foreach ($folders as $folder) {
-						if($folder['folder_id'] == $campaign['folder_id']) {
-							echo $folder['name'];
-						}
-					}
-				?></td>
-			<td><?php 	
-						$lists = $api->lists();
-						foreach($lists as $list) { if($list['id'] == $campaign['list_id']) { echo $list['name']; } else { $listname = ''; } }
-			?></td>
-			<td><?php echo $campaign['emails_sent'] ?></td>
-			<td><?php if($campaign['status'] == 'sent') { ?><img src="../wolf/plugins/mailer/images/misc/reports.png" align="middle" alt="Reports" /><?php } else { ?><img src="../wolf/plugins/mailer/images/misc/reportsNA.png" align="middle" alt="No Reports Available" /><?php } ?></td>
-			<td><a href="<?php echo get_url('plugin/mailer/campaignDelete/'.$campaign['id'].'') ?>" onclick="return confirm('Are you sure you wish to delete the campaign <?php echo $campaign['title'] ?>?\n\nThis is NOT REVERSIBLE!')"><img src="images/icon-remove.gif" align="middle" alt="Delete" /></a> <img src="../wolf/plugins/mailer/images/campaignCopy.png" align="middle" alt="Copy this Campaign" /></td>
-		</tr>
-<?php
-			}
-		}
+	}
 ?>
 	</tbody>
 </table>

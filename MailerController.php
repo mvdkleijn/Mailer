@@ -167,6 +167,7 @@ class MailerController extends PluginController {
 		$firstname = filter_var($_POST['firstname'], FILTER_SANITIZE_STRING);
 		$lastname = filter_var($_POST['lastname'], FILTER_SANITIZE_STRING);
 		$email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+		$newemail = filter_var($_POST['newemail'], FILTER_VALIDATE_EMAIL);
 		$listid = $_POST['listid'];
 		$groups = $_POST['group'];
 		$count = count($groups);
@@ -184,7 +185,7 @@ class MailerController extends PluginController {
 			redirect(get_url('plugin/mailer/members/add'));
 		}
 		else {
-			$merge_vars = array('FNAME'=>$firstname, 'LNAME'=>$lastname, 'INTERESTS'=>$groupdetails);
+			$merge_vars = array('EMAIL'=>$newemail, 'FNAME'=>$firstname, 'LNAME'=>$lastname, 'INTERESTS'=>$groupdetails);
 			$settings = Plugin::getAllSettings('mailer');
 			$api = new MCAPI($settings['apikey']);
 			$add = $api->listUpdateMember($listid, $email, $merge_vars, $_POST['prefs'], true);

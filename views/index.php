@@ -40,9 +40,32 @@
 		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> You need to enable mod_rewrite for this plugin to work.<br />Behaviour in the backend is unpredicatable without it enabled.<br />Please amend your config.php and .htaccess files</div>';
 	}
 
+
+	$lists = $api->lists();
+	$count = 0;
+	foreach($lists as $list) {
+		$reports = $api->listAbuseReports($list['id']);
+		$count = $count + count($reports);
+	}
+	
+	if($count == 0) {
+		echo '<div class="abuseClear"><img src="../wolf/plugins/mailer/images/misc/abuseClear2.png" align="center" alt="Clear!" /> You don\'t have any abuse reports against your lists</div>';
+	}
+	else {
+		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> You have had abuse reports made against you!<br />';
+		foreach($reports as $rpt) {
+			$campaignUrl = get_url('plugin/mailer/viewcampaign/');
+			echo 'Reported by '.$rpt['email'].' on '.$rpt['date'].' about <a href="'.$campaignUrl.''.$rpt['campaign_id'].'">one of your campaigns</a>';
+		}	
+		echo '</div>';
+	}
+
+
 ?>
 
-<p align="center"><img src="../wolf/plugins/mailer/images/mailChimp.png" align="middle" alt="Mail Chimp" /></p>
+<div id="chimpHome"><img src="../wolf/plugins/mailer/images/mailChimp.png" align="middle" alt="Mail Chimp" /></div>
+
+<div id="rightHome">
 
 <?php	if($settings['configured'] == 0) {	?>
 <p>Hey there, <?php echo $propername; ?> - I see you haven't finished setting up this plugin yet. You'll need to set it up properly before you can use it.</p>
@@ -51,15 +74,17 @@
 
 <?php	} else {	?>
 
-<p>Hey there, <?php echo $propername; ?>. What would you like to do today?</p>
+<p>Hey there, <?php echo $propername; ?>.<p>
+<p>What would you like to do today?</p>
 
-<ul>
-	<li><a href="<?php echo get_url('plugin/mailer/members/add'); ?>">Add a new subscriber</a></li>
-	<li><a href="<?php echo get_url('plugin/mailer/members'); ?>">Edit existing subscribers</a></li>
-	<li><a href="<?php echo get_url('plugin/mailer/groups/add'); ?>">Set up a group for mailing later</a></li>
-</ul>
-
-<p>Abuse Reports:</p>
-
+<p>&nbsp;</p>
+<p><a class="createButton" id="campaign" href="<?php echo get_url('plugin/mailer/campaigns/add'); ?>"><img src="../wolf/plugins/mailer/images/misc/add.png" align="top" alt="Add a Campaign" /> Create a New Campaign</a></p>
+<p>&nbsp;</p>
+<p><a class="createButton" id="subscriber" href="<?php echo get_url('plugin/mailer/members/add'); ?>">Add a new Subscriber</a>
+<a class="createButton" id="groups" href="<?php echo get_url('plugin/mailer/groups/add'); ?>">Add a new Group</a></p>
+<p>&nbsp;</p>
+<p><a class="createButton" id="settings" href="<?php echo get_url('plugin/mailer/settings'); ?>"><img src="../wolf/plugins/mailer/images/misc/settingsHomePage.png" align="top" alt="Tweak your Settings" /> Adjust Settings</a>
+<a class="createButton" id="search" href="<?php echo get_url('plugin/mailer/search'); ?>"><img src="../wolf/plugins/mailer/images/misc/searchHomePage.png" align="middle" alt="Search" /> Search</a></p>
+</div>
 
 <?php } ?>
