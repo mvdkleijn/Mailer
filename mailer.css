@@ -1,0 +1,123 @@
+.abuseClear {
+	text-align: center;
+	padding: 15px;
+	background: #cfc;
+	color: #000;
+}
+
+.abuseReports {
+	text-align: center;
+	padding: 15px;
+	background: #a22;
+	color: #FFF;
+}
+
+
+
+/* http://www.alistapart.com/articles/accessibledatavisualization */
+	
+.timeline { 
+	font-size: 0.75em; 
+	height: 10em; 
+}
+
+.timeline li { 
+	position: relative;
+	float: left;
+	width: 5em; 
+	margin: 0 0.1em;
+	height: 8em; 
+}
+
+.timeline li a { 
+	display: block;
+	height: 100%;  
+}
+
+.timeline li .label { 
+	display: block; 
+	position: absolute; 
+	bottom: -2em; 
+	left: 0; 
+	background: #fff; 
+	width: 100%; 
+	height: 2em; 
+	line-height: 2em; 
+	text-align: center;
+}
+
+.timeline li a .count { 
+	display: block; 
+	position: absolute; 
+	bottom: 0; 
+	left: 0; 
+	height: 0; 
+	width: 100%; 
+	background: #cfc; 
+	text-indent: -9999px; 
+	overflow: hidden; 
+}
+
+.timeline li:hover { 
+	background: #EFEFEF; 
+}
+
+.timeline li a:hover .count { 
+	background: #2D7BB2; 
+}
+
+
+/* Sparkline Usage:
+
+				 <ul class="sparklist">
+					<li>
+						<span class="sparkline">
+							<span class="sparkindex"><span class="count" style="height: 27%;">(60,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 97%;">220,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 62%;">140,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 35%;">80,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 49%;">110,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 40%;">90,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 80%;">180,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 62%;">140,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 53%;">120,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 71%;">160,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 78%;">175,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 100%;">225,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 78%;">175,</span> </span>
+							<span class="sparkindex"><span class="count" style="height: 56%;">125)</span> </span>
+						</span>
+					</li>
+				</ul>
+
+*/
+
+
+.sparkline { 
+	float: left; 
+	height: 1em;
+	margin: 0;
+}
+
+.sparkline .sparkindex { 
+	position: relative;
+	float: left;
+	width: 2px; 
+	height: 100%; 
+}
+
+.sparkline .sparkindex .count { 
+	display: block; 
+	position: absolute; 
+	bottom: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 0; 
+	background: #AAA;
+	overflow: hidden; 
+	text-indent: -9999px;
+}
+	
+.sparklist li { 
+	padding: 0; 
+}
