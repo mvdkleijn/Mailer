@@ -23,6 +23,10 @@ class MailerController extends PluginController {
 		$this->display('mailer/views/campaigns/index');
 	}
 
+	public function viewcampaign($cid) {
+		$this->display('mailer/views/campaigns/view', array('cid'=>$cid));
+	}
+
 	function campaignDelete($cid) {
 		$settings = Plugin::getAllSettings('mailer');
 		$api = new MCAPI($settings['apikey']);

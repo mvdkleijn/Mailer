@@ -33,12 +33,6 @@
 	$result = $api->ping($settings['apikey']);
 	if ($result == "Everything's Chimpy!") {
 		echo '<div class="abuseClear"><img src="../wolf/plugins/mailer/images/misc/abuseClear.png" align="center" alt="Clear!" /> The MailChimp API is currently up and running</div>';
-	} else {
-		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> There is a problem with the MailChimp API - have you set up your API key yet?</div>';
-	}
-	if(USE_MOD_REWRITE == FALSE) {
-		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> You need to enable mod_rewrite for this plugin to work.<br />Behaviour in the backend is unpredicatable without it enabled.<br />Please amend your config.php and .htaccess files</div>';
-	}
 
 
 	$lists = $api->lists();
@@ -60,6 +54,13 @@
 		echo '</div>';
 	}
 
+	} else {
+		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> There is a problem with the MailChimp API - have you set up your API key yet?</div>';
+	}
+	if(USE_MOD_REWRITE == FALSE) {
+		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> You need to enable mod_rewrite for this plugin to work.<br />Behaviour in the backend is unpredicatable without it enabled.<br />Please amend your config.php and .htaccess files</div>';
+	}
+
 
 ?>
 
@@ -70,7 +71,7 @@
 <?php	if($settings['configured'] == 0) {	?>
 <p>Hey there, <?php echo $propername; ?> - I see you haven't finished setting up this plugin yet. You'll need to set it up properly before you can use it.</p>
 
-<p>I'd suggest you grab a banana and <a href="<?php echo get_url('plugin/mailer/documentation'); ?>">reading the documentation</a> to getting started.</p>
+<p>I'd suggest you grab a banana and <a href="<?php echo get_url('plugin/mailer/documentation'); ?>">read the documentation</a> to get started.</p>
 
 <?php	} else {	?>
 
@@ -85,6 +86,8 @@
 <p>&nbsp;</p>
 <p><a class="createButton" id="settings" href="<?php echo get_url('plugin/mailer/settings'); ?>"><img src="../wolf/plugins/mailer/images/misc/settingsHomePage.png" align="top" alt="Tweak your Settings" /> Adjust Settings</a>
 <a class="createButton" id="search" href="<?php echo get_url('plugin/mailer/search'); ?>"><img src="../wolf/plugins/mailer/images/misc/searchHomePage.png" align="middle" alt="Search" /> Search</a></p>
-</div>
+
 
 <?php } ?>
+
+</div>

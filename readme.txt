@@ -33,6 +33,7 @@ It provides the following features:
 
 == TODO ==
 
+* add threshold for minimum email credits
 * uninstall not working
 * Consider using Webhooks and integrating with Dashboard plugin or create one for Mailer
 * Ability to search in admin section
