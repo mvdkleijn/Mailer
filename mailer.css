@@ -1,3 +1,12 @@
+.htmlPreview {
+	width: 100%;
+	min-height: 600px;
+}
+
+.plainText {
+	font-size: 1.2em;
+}
+
 .abuseClear {
 	text-align: center;
 	padding: 15px;
@@ -9,6 +18,13 @@
 	text-align: center;
 	padding: 15px;
 	background: #a22;
+	color: #FFF;
+}
+
+.abuseNeutral {
+	text-align: center;
+	padding: 15px;
+	background: #d97408;
 	color: #FFF;
 }
 

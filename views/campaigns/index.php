@@ -30,8 +30,7 @@
 			<th class="status">Status</th>
 			<th class="folder">Folder</th>
 			<th class="list">Target List</th>
-			<th class="emails">Emails Sent</th>
-			<th class="reports">Reports</th>
+			<th class="emails">Emails</th>
 			<th class="options">Options</th>
 		</tr>
 	</thead>
@@ -70,8 +69,7 @@
 						foreach($lists as $list) { if($list['id'] == $campaign['list_id']) { echo $list['name']; } else { $listname = ''; } }
 			?></td>
 			<td><?php echo $campaign['emails_sent'] ?></td>
-			<td><?php if($campaign['status'] == 'sent') { ?><img src="../wolf/plugins/mailer/images/misc/reports.png" align="middle" alt="Reports" /><?php } else { ?><img src="../wolf/plugins/mailer/images/misc/reportsNA.png" align="middle" alt="No Reports Available" /><?php } ?></td>
-			<td><a href="<?php echo get_url('plugin/mailer/campaignDelete/'.$campaign['id'].'') ?>" onclick="return confirm('Are you sure you wish to delete the campaign <?php echo $campaign['title'] ?>?\n\nThis is NOT REVERSIBLE!')"><img src="images/icon-remove.gif" align="bottom" alt="Delete" /></a> <small>Copy</small></td>
+			<td><a href="<?php echo get_url('plugin/mailer/campaignDelete/'.$campaign['id'].'') ?>" onclick="return confirm('Are you sure you wish to delete the campaign <?php echo $campaign['title'] ?>?\n\nThis is NOT REVERSIBLE!')"><img src="images/icon-remove.gif" align="bottom" alt="Delete" /></a></td>
 		</tr>
 
 <?php
