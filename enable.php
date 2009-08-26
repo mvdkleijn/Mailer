@@ -11,9 +11,13 @@
 					('mailer','fromname',''),
 					('mailer','subject',''),
 					('mailer','showLists','1'),
+					('mailer','showListsBox','1'),
 					('mailer','showGroups','1'),
 					('mailer','showFolders','1'),
 					('mailer','showCampaigns','1'),
+					('mailer','showCampaignsBox','1'),
+					('mailer','showMembersBox','1'),
+					('mailer','showSettingsBox','1'),
 					('mailer','showSearch','1'),
 					('mailer','configured','0'),
 					('mailer','active','1');";

@@ -27,7 +27,8 @@
 
 <?php } ?>
 
-
+<?php
+	if($settings['showCampaignsBox'] == 1) { ?>
 <div class="box">
 	<h2><?php echo __('Campaigns');?></h2>
 	<p class="button"><a href="<?php echo get_url('plugin/mailer/campaigns'); ?>"><img src="../wolf/plugins/mailer/images/campaigns.png" align="middle" alt="Campaigns" /> View All Campaigns</a></p>
@@ -70,7 +71,10 @@
 		<p class="button"><a href="<?php echo get_url('plugin/mailer/campaigns/add'); ?>"><img src="../wolf/plugins/mailer/images/campaignsAdd.png" align="middle" alt="Add q Campaign" /> <?php echo __('Add Campaign'); ?></a></p>
 		<p class="button"><a href="<?php echo get_url('plugin/mailer/folders/add'); ?>"><img src="../wolf/plugins/mailer/images/campaignsFolderAdd.png" align="middle" alt="Add a Folder" /> <?php echo __('Add Folder'); ?></a></p>
 </div>
+<?php } ?>
 
+<?php
+	if($settings['showListsBox'] == 1) { ?>
 <div class="box">
 	<h2><?php echo __('Mailing Lists and Groups');?></h2>
 	<p class="button"><a href="<?php echo get_url('plugin/mailer/lists'); ?>"><img src="../wolf/plugins/mailer/images/lists.png" align="middle" alt="Lists" /> <?php echo __('View Lists'); ?></a></p>
@@ -106,16 +110,23 @@
 ?>	
 	<p class="button"><a href="<?php echo get_url('plugin/mailer/groups/add'); ?>"><img src="../wolf/plugins/mailer/images/groupsAdd.png" align="middle" alt="Add a Group" /> <?php echo __('Add Group'); ?></a></p>
 </div>
+<?php } ?>
 
+<?php
+	if($settings['showMembersBox'] == 1) { ?>
 <div class="box">
 	<h2><?php echo __('Members');?></h2>
 	<p class="button"><a href="<?php echo get_url('plugin/mailer/members'); ?>"><img src="../wolf/plugins/mailer/images/members.png" align="middle" alt="View Members" /> <?php echo __('View Members'); ?></a></p>
 	<p class="button"><a href="<?php echo get_url('plugin/mailer/members/add'); ?>"><img src="../wolf/plugins/mailer/images/membersAdd.png" align="middle" alt="Add Member" /> <?php echo __('Add Member'); ?></a></p>
 </div>
+<?php } ?>
 
+<?php
+	if($settings['showSettingsBox'] == 1) { ?>
 <div class="box">
 	<h2><?php echo __('Settings');?></h2>
 	<p class="button"><a href="<?php echo get_url('plugin/mailer/account'); ?>"><img src="../wolf/plugins/mailer/images/account.png" align="middle" alt="Account" /> <?php echo __('MailChimp Account'); ?></a></p>
 	<p class="button"><a href="<?php echo get_url('plugin/mailer/settings'); ?>"><img src="../wolf/plugins/mailer/images/settings.png" align="middle" alt="Settings" /> <?php echo __('Mailer Settings'); ?></a></p>
 	<p class="button"><a href="<?php echo get_url('plugin/mailer/documentation'); ?>"><img src="../wolf/plugins/mailer/images/documentation.png" align="middle" alt="Documentation" /> <?php echo __('Documentation'); ?></a></p>
 </div>
+<?php } ?>

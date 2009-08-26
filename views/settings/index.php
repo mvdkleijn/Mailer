@@ -57,29 +57,37 @@
 			<td colspan="3" class="help"><strong>Sidebar Options</strong></td>
 		</tr>
 		<tr>
-			<td class="label"><label for="showCampaigns">Show Campaigns</label></td>
-			<td class="field"><input id="showCampaigns" name="showCampaigns" type="checkbox" value="1"<?php if($settings['showCampaigns'] == 1) { echo ' checked="checked"'; } ?> /></td>
-			<td class="help">Show Campaign quicklinks in Sidebar.</td>
+			<td class="label"><label for="showSearch">Search</label></td>
+			<td class="field"><input id="showSearch" name="showSearch" type="checkbox" value="1"<?php if($settings['showSearch'] == 1) { echo ' checked="checked"'; } ?> /> Show Search Box</td>
+			<td class="help">Show Search box in Sidebar.</td>
 		</tr>
 		<tr>
-			<td class="label"><label for="showFolders">Show Folders</label></td>
-			<td class="field"><input id="showFolders" name="showFolders" type="checkbox" value="1"<?php if($settings['showFolders'] == 1) { echo ' checked="checked"'; } ?> /></td>
-			<td class="help">Show Folder quicklinks in Sidebar.</td>
+			<td class="label"><label for="showCampaigns">Campaigns</label></td>
+			<td class="field">
+				<input id="showCampaignsBox" name="showCampaignsBox" type="checkbox" value="1"<?php if($settings['showCampaignsBox'] == 1) { echo ' checked="checked"'; } ?> /> Campaign Box<br />
+				<input id="showCampaigns" name="showCampaigns" type="checkbox" value="1"<?php if($settings['showCampaigns'] == 1) { echo ' checked="checked"'; } ?> /> <small>Individual Campaigns</small><br />
+				<input id="showFolders" name="showFolders" type="checkbox" value="1"<?php if($settings['showFolders'] == 1) { echo ' checked="checked"'; } ?> /> <small>Individual Folders</small>
+			</td>
+			<td class="help">Show Campaign and Folder quicklinks in Sidebar.</td>
 		</tr>
 		<tr>
-			<td class="label"><label for="showLists">Show Lists</label></td>
-			<td class="field"><input id="showLists" name="showLists" type="checkbox" value="1"<?php if($settings['showLists'] == 1) { echo ' checked="checked"'; } ?> /></td>
+			<td class="label"><label for="showLists">Lists and Groups</label></td>
+			<td class="field">
+				<input id="showListsBox" name="showListsBox" type="checkbox" value="1"<?php if($settings['showListsBox'] == 1) { echo ' checked="checked"'; } ?> /> Lists and Groups Box<br />
+				<input id="showLists" name="showLists" type="checkbox" value="1"<?php if($settings['showLists'] == 1) { echo ' checked="checked"'; } ?> /> <small>Individual Lists</small><br />
+				<input id="showGroups" name="showGroups" type="checkbox" value="1"<?php if($settings['showGroups'] == 1) { echo ' checked="checked"'; } ?> /> <small>Individual Groups</small>
+			</td>
 			<td class="help">Show List quicklinks in Sidebar.</td>
 		</tr>
 		<tr>
-			<td class="label"><label for="showGroups">Show Groups</label></td>
-			<td class="field"><input id="showGroups" name="showGroups" type="checkbox" value="1"<?php if($settings['showGroups'] == 1) { echo ' checked="checked"'; } ?> /></td>
-			<td class="help">Show Group quicklinks in Sidebar.</td>
+			<td class="label"><label for="showMembersBox">Members</label></td>
+			<td class="field"><input id="showMembersBox" name="showMembersBox" type="checkbox" value="1"<?php if($settings['showMembersBox'] == 1) { echo ' checked="checked"'; } ?> /> Show Members Box</td>
+			<td class="help">Show Members (subscribers) box in Sidebar.</td>
 		</tr>
 		<tr>
-			<td class="label"><label for="showSearch">Show Search</label></td>
-			<td class="field"><input id="showSearch" name="showSearch" type="checkbox" value="1"<?php if($settings['showSearch'] == 1) { echo ' checked="checked"'; } ?> /></td>
-			<td class="help">Show Search box in Sidebar.</td>
+			<td class="label"><label for="showSettingsBox">Settings</label></td>
+			<td class="field"><input id="showSettingsBox" name="showSettingsBox" type="checkbox" value="1"<?php if($settings['showSettingsBox'] == 1) { echo ' checked="checked"'; } ?> /> Show Settings Box</td>
+			<td class="help">Show settings box in Sidebar. If disabled, you can update settings by going to 'Administration' tab and then selecting 'Settings' next to the plugin details</td>
 		</tr>
 		<tr>
 			<td class="label"><label for="submit">&nbsp;</label></td>

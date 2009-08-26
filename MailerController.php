@@ -62,7 +62,7 @@ class MailerController extends PluginController {
 
 	function saveSettings() {
 		global $__CMS_CONN__;
-		$resets = array('showCampaigns','showLists','showGroups', 'showFolders', 'showSearch');
+		$resets = array('showCampaigns','showLists','showGroups', 'showFolders', 'showSearch', 'showCampaignsBox', 'showListsBox', 'showMembersBox', 'showSettingsBox');
 		foreach($resets as $reset) {
 			$sql = "	UPDATE ".TABLE_PREFIX."plugin_settings
 						SET	`value`='0'
