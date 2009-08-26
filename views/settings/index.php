@@ -44,14 +44,9 @@
 			<td colspan="3" class="help"><strong>Test Email addresses</strong></td>
 		</tr>
 		<tr>
-			<td class="label"><label for="testEmail">Test Email 1</label></td>
-			<td class="field"><input class="textbox" id="testEmail" maxlength="64" name="testEmail" size="64" type="text" value="<?php echo $settings['testEmail']; ?>" /></td>
-			<td class="help">Address to send tests to.</td>
-		</tr>
-		<tr>
-			<td class="label"><label for="bossEmail">Test Email 2</label></td>
-			<td class="field"><input class="textbox" id="bossEmail" maxlength="64" name="bossEmail" size="64" type="text" value="<?php echo $settings['bossEmail']; ?>" /></td>
-			<td class="help">Another address to send tests to.</td>
+			<td class="label"><label for="testEmail">Test Emails</label></td>
+			<td class="field"><textarea name="testEmail" class="textbox"><?php echo $settings['testEmail']; ?></textarea></td>
+			<td class="help">Addresses to send test emails to when setting up a campaign. You can edit these at the time, but this may save you time in the long run if you send test emails to the same bunch of people for each campaign. Should be comma separated.<br /><br />For Example:<br /><br /><small>me@example.com, you@test.org, them@fail.co.uk</small><br /><br /><strong>Important!<br />Max number of characters: 255!</strong></td>
 		</tr>
 		<tr>
 			<td colspan="3" class="help"><strong>Sidebar Options</strong></td>

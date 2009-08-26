@@ -73,6 +73,17 @@ class MailerController extends PluginController {
 		}
 		foreach ($_POST as $key => $value) {
 			if(($key == 'password') && ($value == '')) {
+			} elseif($key == 'testEmail') {
+				$value = str_replace(' ', '', $value);
+				$last = $value[strlen($value) - 1];
+				if($last == ',' || $last == ' ' || $last == '.') {
+					$value = substr_replace($value, '', -1);
+				}
+				$sql = "	UPDATE ".TABLE_PREFIX."plugin_settings
+							SET	`value`='$value'
+							WHERE plugin_id='mailer' AND name='$key'";
+				$pdo = $__CMS_CONN__->prepare($sql);
+				$pdo->execute();
 			} else {
 				$sql = "	UPDATE ".TABLE_PREFIX."plugin_settings
 							SET	`value`='$value'

@@ -6,7 +6,6 @@
 					('mailer','apikey',''),
 					('mailer','apiUrl','http://api.mailchimp.com/1.2/'),
 					('mailer','testEmail',''),
-					('mailer','bossEmail',''),
 					('mailer','senderemail',''),
 					('mailer','fromname',''),
 					('mailer','subject',''),

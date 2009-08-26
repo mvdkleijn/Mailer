@@ -1,8 +1,10 @@
 <?php
 
-	global $__CMS_CONN__;
-	$sql = "DELETE FROM ".TABLE_PREFIX."plugin_settings WHERE plugin_id='mailer'";
-	$pdo = $__CMS_CONN__->prepare($sql);
-	$pdo->execute();
-
-	exit();
+	if (Plugin::deleteAllSettings('mailer') === false) {
+		Flash::set('error', __('We had a problem uninstalling the plugin settings.'));
+		redirect(get_url('setting'));
+	}
+	else {
+		Flash::set('success', __('You\'ve succesfully uninstalled the Mailer plugin.'));
+		redirect(get_url('setting'));
+	}
