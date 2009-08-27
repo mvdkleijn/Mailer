@@ -2,12 +2,13 @@
 
 	$settings = Plugin::getAllSettings('mailer');
 	$api = new MCAPI($settings['apikey']);
-	
 	$lists = $api->lists();
+
 	foreach ($lists as $list) {
 		$member = $api->listMemberInfo($list['id'], $_GET['email']);
-		$actualListid = $list['id'];
-		if($member['id'] == $_GET['userid']) {
+		$listid = $list['id'];
+		if($member['status'] == 'subscribed') {
+
 
 		$subscribedTo = $member['merges']['INTERESTS'];
 ?>
@@ -86,4 +87,5 @@
 <?php
 		}
 	}
+
 ?>
