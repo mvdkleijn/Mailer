@@ -9,6 +9,7 @@
 					('mailer','senderemail',''),
 					('mailer','fromname',''),
 					('mailer','subject',''),
+					('mailer','googleDisplay','1'),
 					('mailer','showLists','1'),
 					('mailer','showListsBox','1'),
 					('mailer','showGroups','1'),

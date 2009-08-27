@@ -96,6 +96,26 @@ class MailerController extends PluginController {
 		redirect(get_url('plugin/mailer/settings'));
 	}
 
+	function saveAnalyticsState() {
+		global $__CMS_CONN__;
+		$sql = "	UPDATE ".TABLE_PREFIX."plugin_settings
+					SET	`value`='0'
+					WHERE plugin_id='mailer' AND name='googleDisplay'";
+		$pdo = $__CMS_CONN__->prepare($sql);
+		$pdo->execute();
+		redirect(get_url('plugin/mailer/'));
+	}
+
+	function setupAnalytics() {
+		global $__CMS_CONN__;
+		$sql = "	UPDATE ".TABLE_PREFIX."plugin_settings
+					SET	`value`='0'
+					WHERE plugin_id='mailer' AND name='googleDisplay'";
+		$pdo = $__CMS_CONN__->prepare($sql);
+		$pdo->execute();
+		redirect('https://admin.mailchimp.com/account/integrations/google-oauth-authorize');
+	}
+
 	public function updateConfiguredSetting($flag) {
 		global $__CMS_CONN__;
 		$sql = "	UPDATE ".TABLE_PREFIX."plugin_settings

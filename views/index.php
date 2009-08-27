@@ -61,6 +61,10 @@
 		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> You need to enable mod_rewrite for this plugin to work.<br />Behaviour in the backend is unpredicatable without it enabled.<br />Please amend your config.php and .htaccess files</div>';
 	}
 
+	if($settings['googleDisplay'] == '1') {
+		echo '<div class="abuseReports"><a href="'.get_url('plugin/mailer/setupAnalytics').'" target="_blank">Add your Google Analytics account</a><br />(you must sign in to Mailchimp and Google)<br />Alternatively, <a href="'.get_url('plugin/mailer/saveAnalyticsState').'">turn off this message</a><br /><strong>Please note, once you have authorised Google, you will be directed to your MailChimp account, not back to here.</strong></div>';
+	}
+
 
 ?>
 

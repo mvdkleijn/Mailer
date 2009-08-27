@@ -21,6 +21,10 @@
 	color: #FFF;
 }
 
+.abuseReports a {
+	color: white;
+}
+
 .abuseNeutral {
 	text-align: center;
 	padding: 15px;

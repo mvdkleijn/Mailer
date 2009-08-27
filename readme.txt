@@ -47,7 +47,7 @@ It provides the following features:
 	generateText
 	createFolder
 	inlineCss
-	All AIM methods
+	** All AIM methods **
 
 
 
