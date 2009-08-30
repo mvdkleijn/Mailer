@@ -19,8 +19,67 @@ class MailerController extends PluginController {
 		$this->display('mailer/views/settings/index');
 	}
 
-	public function campaigns() {
-		$this->display('mailer/views/campaigns/index');
+	public function campaigns($page) {
+		if($page == 'add') {
+			$this->display('mailer/views/campaigns/add');
+		}
+		elseif ($page == 'edit') {
+			$this->display('mailer/views/campaigns/edit');
+		}
+		elseif ($page == 'createcampaign') {
+			$type = $_POST['campaignType'];
+			$options = array();
+			$options['authenticate']	= true;
+			$options['list_id']			= $_POST['list_id'];
+			$options['template_id']		= $_POST['template'];			
+			$options['subject']			= $_POST['campaignSubject'];
+			$options['from_name']		= $_POST['campaignFromName'];
+			$options['from_email']		= $_POST['campaignFromEmail'];
+			$options['auto_footer']		= $_POST['auto_footer'];
+			$options['generate_text']	= $_POST['generate_text'];
+			$options['title']			= $_POST['campaignName'];
+			if($_POST['campaignFolder'] != 'none') {
+				$options['folder_id']		= $_POST['campaignFolder'];
+			}
+			if($_POST['campaignTracking'] == 'yes') {
+				$options['tracking'] = array('opens' => true, 'html_clicks' => true, 'text_clicks' => false);
+			}
+			else {
+				$options['tracking'] = array('opens' => false, 'html_clicks' => false, 'text_clicks' => false);
+			}
+			$content = array();
+			$settings = Plugin::getAllSettings('mailer');
+			$api = new MCAPI($settings['apikey']);
+			$templates = $api->campaignTemplates();
+			foreach($templates as $template) {
+				if($_POST['template'] == $template['id']) {
+					foreach($template['sections'] as $sectionid => $sectionName) {
+						$content['html_'.$sectionName.''] = $_POST['html_'.$sectionName.''];
+					}
+				}
+			}
+			$content['text'] = $_POST['plaintext'];
+
+			$create = $api->campaignCreate(
+				$type, $options, $content
+			);
+			$settings = Plugin::getAllSettings('mailer');
+			$api = new MCAPI($settings['apikey']);
+			$campaigns = $api->campaigns();
+			$i = 1;
+			foreach($campaigns as $campaign) {
+				if($i == 1) {
+					$campaignId = $campaign['id'];
+				}
+				$i = $i + 1;
+			}
+			$redirectUrl = 'plugin/mailer/viewcampaign/'.$campaignId.'';
+			Flash::set('success', __('Your '.$_POST['campaignName'].' campaign has been added.'));
+			redirect(get_url(''.$redirectUrl.''));
+		}
+		else {
+			$this->display('mailer/views/campaigns/index');
+		}
 	}
 
 	public function viewcampaign($cid) {
@@ -45,17 +104,21 @@ class MailerController extends PluginController {
 	}
 
 	function folderAdd() {
+		$redirectUrl = 'plugin/mailer/campaigns';
+		if($_POST['group'] != '') {
+			$redirectUrl = 'plugin/mailer/campaigns/add?template='.$_POST['template'].'&listid='.$_POST['listid'].'&group='.$_POST['group'].'';
+		}
 		$folderName = filter_var($_POST['folderName'], FILTER_SANITIZE_STRING);
 		if($folderName != '') {
 			$settings = Plugin::getAllSettings('mailer');
 			$api = new MCAPI($settings['apikey']);
 			$add = $api->createFolder($folderName);
 			Flash::set('success', __(''.$folderName.' has been added to your folders'));
-			redirect(get_url('plugin/mailer/folders'));
+			redirect(get_url(''.$redirectUrl.''));
 		}
 		else {
 			Flash::set('error', __('You need to add a folder name'));
-			redirect(get_url('plugin/mailer/campaigns'));
+			redirect(get_url(''.$redirectUrl.''));
 		}
 	}
 

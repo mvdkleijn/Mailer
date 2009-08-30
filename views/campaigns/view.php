@@ -44,7 +44,7 @@
 		echo '<div class="abuseNeutral"><img src="../wolf/plugins/mailer/images/misc/abuseNeutral.png" align="center" alt="Clear!" /> '.$advice['0']['msg'].'</div>';
 	}
 	else {
-		echo '<div class="abuseReports">This Campaign hasn\'t been sent yet</div>';
+		echo '<div class="abuseReports">This Campaign hasn\'t been sent yet - <a href="'.get_url('plugin/mailer/sendcampaign/'.$cid.'').'">Send Now!</a></div>';
 	}
 ?>
 
