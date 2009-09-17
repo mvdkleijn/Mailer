@@ -30,7 +30,7 @@
 
 
 ?>
-<h1>Viewing Campaign: <?php echo $campaign['title']; ?></h1>
+<h1>Viewing Campaign: <?php echo $campaignDetails['title']; ?></h1>
 
 <?php
 
@@ -44,9 +44,30 @@
 		echo '<div class="abuseNeutral"><img src="../wolf/plugins/mailer/images/misc/abuseNeutral.png" align="center" alt="Clear!" /> '.$advice['0']['msg'].'</div>';
 	}
 	else {
-		echo '<div class="abuseReports">This Campaign hasn\'t been sent yet - <a href="'.get_url('plugin/mailer/sendcampaign/'.$cid.'').'">Send Now!</a></div>';
+		echo '<div class="abuseReports"><p>This Campaign hasn\'t been sent yet - <a href="#" onclick="toggle_popup(\'send-now-popup\', \'send_now\'); return false;">Send Now!</a></p>
+		<p><a href="#" onclick="toggle_popup(\'send-test-popup\', \'send_test\'); return false;">Send a test email</a></p></div>';
 	}
 ?>
+
+
+			<div class="popup" id="send-test-popup" style="display:none;">
+				<h2>Send a test email</h2>
+				<p>You are about to send this test email to:</p>
+				<p><small><?php echo str_replace(',', '<br />', $settings['testEmail']) ?></small></p>
+				<p>&nbsp;</p>
+				<p><a class="backButton" href="<?php echo get_url('plugin/mailer/sendtest/'.$cid.'?emails='.$settings['testEmail'].'')?>"> Send this test</a> or <a class="close-link" href="#" onclick="Element.hide('send-test-popup'); return false;">cancel</a></p>
+				<input id="send_test" type="hidden" /> 
+				<p>&nbsp;</p>
+			</div>
+
+			<div class="popup" id="send-now-popup" style="display:none;">
+				<h2>SEND NOW!</h2>
+				<p>You are about to send this email</p>
+				<p>&nbsp;</p>
+				<p><a class="backButton" href="<?php echo get_url('plugin/mailer/sendcampaign/'.$cid.'')?>"> Send NOW!</a> or <a class="close-link" href="#" onclick="Element.hide('send-now-popup'); return false;">cancel</a></p>
+				<input id="send_now" type="hidden" /> 
+				<p>&nbsp;</p>
+			</div>
 
 <p>&nbsp;</p>
 <p><a class="backButton" href="<?php echo get_url('plugin/mailer/campaigns'); ?>"><img src="../wolf/plugins/mailer/images/backButton.png" align="middle" alt="Back Button" /> Back to Campaigns</a></p>
@@ -166,7 +187,18 @@
 			</pre>
 		</td>
 	</tr>
-<?php		} ?>
+<?php	}
+		elseif($campaignDetails['type'] == 'plaintext') { ?>
+	<tr>
+		<td colspan="2" class="help"><strong>Plain Text Email</strong>:<br />
+			<pre class="plainText">
+				<?php echo $campaignContent['text']; ?>
+			</pre>
+		</td>
+	</tr>
+<?php		
+		}
+?>
 
 
 </table>

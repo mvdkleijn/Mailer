@@ -44,8 +44,6 @@ It provides the following features:
 * Caching data
 
 * API Calls not used but look useful:
-	generateText
-	createFolder
 	inlineCss
 	** All AIM methods **
 

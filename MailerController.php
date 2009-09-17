@@ -19,6 +19,23 @@ class MailerController extends PluginController {
 		$this->display('mailer/views/settings/index');
 	}
 
+	function sendtest($cid) {
+		$emails = explode(',', $_GET['emails']);
+		$settings = Plugin::getAllSettings('mailer');
+		$api = new MCAPI($settings['apikey']);
+		$test = $api->campaignSendTest($cid, $emails);
+		Flash::set('success', __('A test email has been sent for this campaign'));
+		redirect(get_url('plugin/mailer/viewcampaign/'.$cid.''));
+	}
+
+	function sendcampaign($cid) {
+		$settings = Plugin::getAllSettings('mailer');
+		$api = new MCAPI($settings['apikey']);
+		$send = $api->campaignSendNow($cid);
+		Flash::set('success', __('This Campaign has been sent!'));
+		redirect(get_url('plugin/mailer/viewcampaign/'.$cid.''));
+	}
+
 	public function campaigns($page) {
 		if($page == 'add') {
 			$this->display('mailer/views/campaigns/add');
@@ -59,10 +76,19 @@ class MailerController extends PluginController {
 				}
 			}
 			$content['text'] = $_POST['plaintext'];
-
-			$create = $api->campaignCreate(
-				$type, $options, $content
-			);
+			if($_POST['group'] == 'all') {
+				$create = $api->campaignCreate(
+					$type, $options, $content
+				);
+			}
+			else {
+				$conditions = array();
+				$conditions[] = array('field' => 'interests', 'op' => 'all', 'value' => $_POST['group']);
+				$segments = array('match'=>'all', 'conditions'=>$conditions);
+				$create = $api->campaignCreate(
+					$type, $options, $content, $segments
+				);
+			}
 			$settings = Plugin::getAllSettings('mailer');
 			$api = new MCAPI($settings['apikey']);
 			$campaigns = $api->campaigns();
