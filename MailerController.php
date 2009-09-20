@@ -71,7 +71,7 @@ class MailerController extends PluginController {
 			foreach($templates as $template) {
 				if($_POST['template'] == $template['id']) {
 					foreach($template['sections'] as $sectionid => $sectionName) {
-						$content['html_'.$sectionName.''] = $_POST['html_'.$sectionName.''];
+						$content['html_'.$sectionName.''] = str_replace('<img src="/', '<img src="'.URL_PUBLIC.'/', str_replace('<a href="/', '<a href="'.URL_PUBLIC.'/', $_POST['html_'.$sectionName.'']));
 					}
 				}
 			}
