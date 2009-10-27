@@ -168,7 +168,7 @@
 				$rootDir = str_replace('views/campaigns', 'tmp', $rootDir);
 				$tmpHTMLFile = $rootDir.'/htmlPreview.html';
 				chmod($tmpHTMLFile, 0755);
-				$opened = fopen($tmpHTMLFile, 'w') or die('Can\'t edit the temp file. I just tried to correct the priveleges on on the file, but it failed miserably and broke this page. Any chance you can CHMOD the file /mailer/tmp/htmlPreview.html to 755. kthnxbai');
+				$opened = fopen($tmpHTMLFile, 'w') or die('Can\'t edit the temp file. I just tried to correct the privileges on on the file, but it failed miserably and broke this page. Any chance you can CHMOD the file /mailer/tmp/htmlPreview.html to 755. kthnxbai');
 				if($opened) {
 					fwrite($opened, $campaignContent['html']);
 					fclose($opened);
