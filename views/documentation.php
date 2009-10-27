@@ -12,6 +12,6 @@
 
 <embed src="http://blip.tv/play/gtRe6ulMk8cS%2Em4v" type="application/x-shockwave-flash" width="380" height="266" allowscriptaccess="always" allowfullscreen="true"></embed> 
 
-<p>Then you need to <a href="http://admin.mailchimp.com/account/api">apply for a developer key</a> which you can then <a href="<?php echo get_url('plugin/mailer/settings'); ?>">paste into your settings</a> along with some more information about how you want to set up your system. Be sure to complete ALL of the settings, otherwise his plugin may not behave as expected.</p>
+<p>Then you need to <a href="http://admin.mailchimp.com/account/api">apply for a developer key</a> which you can then <a href="<?php echo get_url('mailer/settings'); ?>">paste into your settings</a> along with some more information about how you want to set up your system. Be sure to complete ALL of the settings, otherwise his plugin may not behave as expected.</p>
 
 <p>Please note that in the administration panel, it may take a while for pages to load. This is because al lthe data is stored on external servers, not yours. Therefore you're dependent on network traffic and distance between servers.</p>

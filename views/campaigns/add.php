@@ -39,9 +39,9 @@
 				}
 				?>
 					<tr class="<?php echo odd_even(); ?>">
-						<td><a href="<?php echo get_url('plugin/mailer/campaigns/add?template='.$template['id']); ?>"><img src="../wolf/plugins/mailer/images/templates/<?php echo $templateImage; ?>.png" /></a></td>
+						<td><a href="<?php echo get_url('mailer/campaigns/add?template='.$template['id']); ?>"><img src="../wolf/plugins/mailer/images/templates/<?php echo $templateImage; ?>.png" /></a></td>
 						<td>Editable Regions:<br /><small><?php foreach($template['sections'] as $sectionid => $sectionName) { echo ucwords($sectionName).'<br />'; } ?></small></td>
-						<td><h2>"<?php echo $template['name']; ?>"</h2><p>&nbsp;</p><p><a class="templateButton" href="<?php echo get_url('plugin/mailer/campaigns/add?template='.$template['id']); ?>">Use this template</a> or <a href="http://admin.mailchimp.com/templates/edit?id=<?php echo $template['id']; ?>" target="_blank">edit it</a></p></td>
+						<td><h2>"<?php echo $template['name']; ?>"</h2><p>&nbsp;</p><p><a class="templateButton" href="<?php echo get_url('mailer/campaigns/add?template='.$template['id']); ?>">Use this template</a> or <a href="http://admin.mailchimp.com/templates/edit?id=<?php echo $template['id']; ?>" target="_blank">edit it</a></p></td>
 					</tr>
 				<?php
 			}
@@ -54,7 +54,7 @@
 		if(!$_GET['listid']) {
 			echo '<p>Which list you would like to send this email to? You can choose individual groups to send it to in the next step.</p>';
 			foreach ($lists as $list) { ?>
-			<div id="campaignList"><a href="<?php echo get_url('plugin/mailer/campaigns/add?template='.$_GET['template'].'&listid='.$list['id'].''); ?>"><img src="../wolf/plugins/mailer/images/templates/list.png" /><br /><?php echo $list['name']; ?></a></div>
+			<div id="campaignList"><a href="<?php echo get_url('mailer/campaigns/add?template='.$_GET['template'].'&listid='.$list['id'].''); ?>"><img src="../wolf/plugins/mailer/images/templates/list.png" /><br /><?php echo $list['name']; ?></a></div>
 <?php		}
 			echo '<div class="clear"></div><p><a class="backButton" href="javascript: history.go(-1)">back</a></p>';
 		}
@@ -62,17 +62,17 @@
 			echo '<p>Which group would you like to send this campaign to?</p>';
 			$groups = $api->listInterestGroups($_GET['listid']);
 ?>
-				<div id="campaignList"><a href="<?php echo get_url('plugin/mailer/campaigns/add?template='.$_GET['template'].'&listid='.$_GET['listid'].'&group=all'); ?>"><img src="../wolf/plugins/mailer/images/templates/listAll.png" /><br />All Groups</a></div><div class="clear"></div>
+				<div id="campaignList"><a href="<?php echo get_url('mailer/campaigns/add?template='.$_GET['template'].'&listid='.$_GET['listid'].'&group=all'); ?>"><img src="../wolf/plugins/mailer/images/templates/listAll.png" /><br />All Groups</a></div><div class="clear"></div>
 <?php
 			foreach($groups['groups'] as $group) {
 ?>
-				<div id="campaignList"><a href="<?php echo get_url('plugin/mailer/campaigns/add?template='.$_GET['template'].'&listid='.$_GET['listid'].'&group='.$group.''); ?>"><img src="../wolf/plugins/mailer/images/templates/listSegment.png" /><br /><?php echo $group; ?></a></div>
+				<div id="campaignList"><a href="<?php echo get_url('mailer/campaigns/add?template='.$_GET['template'].'&listid='.$_GET['listid'].'&group='.$group.''); ?>"><img src="../wolf/plugins/mailer/images/templates/listSegment.png" /><br /><?php echo $group; ?></a></div>
 <?php		}
 			echo '<div class="clear"></div><p><a class="backButton" href="javascript: history.go(-1)">back</a></p>';
 		}
 		else { ?>
 
-			<form method="post" action="<?php echo get_url('plugin/mailer/campaigns/createcampaign'); ?>">
+			<form method="post" action="<?php echo get_url('mailer/campaigns/createcampaign'); ?>">
 				<table class="fieldset" cellpadding="0" cellspacing="0" border="0">
 					<input type="hidden" name="template" value="<?php echo $_GET['template']; ?>" />
 					<input type="hidden" name="list_id" value="<?php echo $_GET['listid']; ?>" />
@@ -186,7 +186,7 @@
 
 			<div class="popup" id="add-folder-popup" style="display:none;">
 				<h3>Name</h3>
-				<form action="<?php echo get_url('plugin/mailer/folderAdd'); ?>" method="post">
+				<form action="<?php echo get_url('mailer/folderAdd'); ?>" method="post">
 					<input type="hidden" name="template" value="<?php echo $_GET['template']; ?>" />
 					<input type="hidden" name="listid" value="<?php echo $_GET['listid']; ?>" />
 					<input type="hidden" name="group" value="<?php echo $_GET['group']; ?>" />

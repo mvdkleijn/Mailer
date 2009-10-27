@@ -7,7 +7,7 @@
 
 <p>These are the settings for the MailChimp API.</p>
 
-<form action="<?php echo get_url('plugin/mailer/saveSettings'); ?>" method="post">
+<form action="<?php echo get_url('mailer/saveSettings'); ?>" method="post">
 	<table class="fieldset" cellpadding="0" cellspacing="0" border="0">
 		<tr>
 			<td colspan="3" class="help"><strong>MailChimp Settings</strong></td>
@@ -86,7 +86,7 @@
 		</tr>
 		<tr>
 			<td class="label"><label for="submit">&nbsp;</label></td>
-			<td class="field"><input type="submit" value="Save Settings" /> or <a href="<?php echo get_url('plugin/mailer/index'); ?>">cancel</a></td>
+			<td class="field"><input type="submit" value="Save Settings" /> or <a href="<?php echo get_url('mailer/index'); ?>">cancel</a></td>
 			<td></td>
 		</tr>
 	</table>

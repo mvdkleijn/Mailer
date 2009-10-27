@@ -55,7 +55,7 @@
 				<p>You are about to send this test email to:</p>
 				<p><small><?php echo str_replace(',', '<br />', $settings['testEmail']) ?></small></p>
 				<p>&nbsp;</p>
-				<p><a class="backButton" href="<?php echo get_url('plugin/mailer/sendtest/'.$cid.'?emails='.$settings['testEmail'].'')?>"> Send this test</a> or <a class="close-link" href="#" onclick="Element.hide('send-test-popup'); return false;">cancel</a></p>
+				<p><a class="backButton" href="<?php echo get_url('mailer/sendtest/'.$cid.'?emails='.$settings['testEmail'].'')?>"> Send this test</a> or <a class="close-link" href="#" onclick="Element.hide('send-test-popup'); return false;">cancel</a></p>
 				<input id="send_test" type="hidden" /> 
 				<p>&nbsp;</p>
 			</div>
@@ -64,13 +64,13 @@
 				<h2>SEND NOW!</h2>
 				<p>You are about to send this email</p>
 				<p>&nbsp;</p>
-				<p><a class="backButton" href="<?php echo get_url('plugin/mailer/sendcampaign/'.$cid.'')?>"> Send NOW!</a> or <a class="close-link" href="#" onclick="Element.hide('send-now-popup'); return false;">cancel</a></p>
+				<p><a class="backButton" href="<?php echo get_url('mailer/sendcampaign/'.$cid.'')?>"> Send NOW!</a> or <a class="close-link" href="#" onclick="Element.hide('send-now-popup'); return false;">cancel</a></p>
 				<input id="send_now" type="hidden" /> 
 				<p>&nbsp;</p>
 			</div>
 
 <p>&nbsp;</p>
-<p><a class="backButton" href="<?php echo get_url('plugin/mailer/campaigns'); ?>"><img src="../wolf/plugins/mailer/images/backButton.png" align="middle" alt="Back Button" /> Back to Campaigns</a></p>
+<p><a class="backButton" href="<?php echo get_url('mailer/campaigns'); ?>"><img src="../wolf/plugins/mailer/images/backButton.png" align="middle" alt="Back Button" /> Back to Campaigns</a></p>
 
 <table class="fieldset" cellpadding="0" cellspacing="0" border="0">
 	<tr>
@@ -204,4 +204,4 @@
 </table>
 
 <p>&nbsp;</p>
-<p><a class="backButton" href="<?php echo get_url('plugin/mailer/campaigns'); ?>"><img src="../wolf/plugins/mailer/images/backButton.png" align="middle" alt="Back Button" /> Back to Campaigns</a></p>
+<p><a class="backButton" href="<?php echo get_url('mailer/campaigns'); ?>"><img src="../wolf/plugins/mailer/images/backButton.png" align="middle" alt="Back Button" /> Back to Campaigns</a></p>

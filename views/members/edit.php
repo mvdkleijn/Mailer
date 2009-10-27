@@ -22,7 +22,7 @@
 <?php } ?>
 
 
-<form action="<?php echo get_url('plugin/mailer/memberUpdate'); ?>" method="post">
+<form action="<?php echo get_url('mailer/memberUpdate'); ?>" method="post">
 	<table class="fieldset" cellpadding="0" cellspacing="0" border="0">
 		<tr>
 			<td class="label"><label for="firstname">First Name</label></td>
@@ -79,7 +79,7 @@
 
 		<tr>
 			<td class="label"><label for="submit">&nbsp;</label></td>
-			<td class="field"><input type="submit" value="Update Subscriber" /> or <a href="<?php echo get_url('plugin/mailer/members'); ?>">cancel</a></td>
+			<td class="field"><input type="submit" value="Update Subscriber" /> or <a href="<?php echo get_url('mailer/members'); ?>">cancel</a></td>
 			<td></td>
 		</tr>
 	</table>

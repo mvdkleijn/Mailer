@@ -40,7 +40,7 @@
 						$time = substr($time, 0, 10);
 						echo $time;
 			?></td>
-			<td><a href="<?php echo get_url('plugin/mailer/members/edit?userid='.$memberinfo['id'].'&email='.$memberinfo['email'].''); ?>"><img src="../wolf/plugins/mailer/images/membersLink.png" align="middle" alt="Edit User" /></a> <a href="<?php echo get_url('plugin/mailer/members/unsubscribe?listid='.$_GET['list'].'&email='.$memberinfo['email'].'&name='.$_GET['name'].''); ?>" onclick="return confirm('Unsubscribing a member is irreversible. Are you sure you want to do this?')"><img src="images/icon-remove.gif" align="middle" alt="Unsubscribe this user" /></a></td>
+			<td><a href="<?php echo get_url('mailer/members/edit?userid='.$memberinfo['id'].'&email='.$memberinfo['email'].''); ?>"><img src="../wolf/plugins/mailer/images/membersLink.png" align="middle" alt="Edit User" /></a> <a href="<?php echo get_url('mailer/members/unsubscribe?listid='.$_GET['list'].'&email='.$memberinfo['email'].'&name='.$_GET['name'].''); ?>" onclick="return confirm('Unsubscribing a member is irreversible. Are you sure you want to do this?')"><img src="images/icon-remove.gif" align="middle" alt="Unsubscribe this user" /></a></td>
 		</tr>
 <?php	}
 } ?>
@@ -48,4 +48,4 @@
 </table>
 
 <p>&nbsp;</p>
-<p><a class="backButton" href="<?php echo get_url('plugin/mailer/groups'); ?>"><img src="../wolf/plugins/mailer/images/backButton.png" align="middle" alt="Back Button" /> Back to Groups</a></p>
+<p><a class="backButton" href="<?php echo get_url('mailer/groups'); ?>"><img src="../wolf/plugins/mailer/images/backButton.png" align="middle" alt="Back Button" /> Back to Groups</a></p>

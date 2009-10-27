@@ -50,11 +50,11 @@
 			 			$membersgroups = explode(', ', $memberinfo['merges']['INTERESTS']);
 						foreach($membersgroups as $group) {
 							if($group != '') {
-								echo '<a href="'.get_url('plugin/mailer/groups/view?name='.$group.'&list='.$list['id'].'">'.$group.'</a> ');
+								echo '<a href="'.get_url('mailer/groups/view?name='.$group.'&list='.$list['id'].'">'.$group.'</a> ');
 							}
 						}
 			?></td>
-			<td><a href="<?php echo get_url('plugin/mailer/members/edit?userid='.$memberinfo['id'].'&email='.$memberinfo['email'].''); ?>"><img src="../wolf/plugins/mailer/images/membersLink.png" align="middle" alt="Edit User" /></a> <a href="<?php echo get_url('plugin/mailer/members/unsubscribe?listid='.$list['id'].'&email='.$memberinfo['email'].'&list='.$list['id'].'&ref=members'); ?>" onclick="return confirm('Unsubscribing a member is irreversible. Are you sure you want to do this?')"><img src="images/icon-remove.gif" align="middle" alt="Delete" /></a></td>
+			<td><a href="<?php echo get_url('mailer/members/edit?userid='.$memberinfo['id'].'&email='.$memberinfo['email'].''); ?>"><img src="../wolf/plugins/mailer/images/membersLink.png" align="middle" alt="Edit User" /></a> <a href="<?php echo get_url('mailer/members/unsubscribe?listid='.$list['id'].'&email='.$memberinfo['email'].'&list='.$list['id'].'&ref=members'); ?>" onclick="return confirm('Unsubscribing a member is irreversible. Are you sure you want to do this?')"><img src="images/icon-remove.gif" align="middle" alt="Delete" /></a></td>
 		</tr>
 <?php	} ?>
 

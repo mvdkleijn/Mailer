@@ -12,7 +12,7 @@
 ?>
 
 
-<form action="<?php echo get_url('plugin/mailer/folderAdd'); ?>" method="post">
+<form action="<?php echo get_url('mailer/folderAdd'); ?>" method="post">
 	<table class="fieldset" cellpadding="0" cellspacing="0" border="0">
 		<tr>
 			<td class="label"><label for="folderName">Name</label></td>
@@ -21,7 +21,7 @@
 		</tr>
 		<tr>
 			<td class="label"><label for="submit">&nbsp;</label></td>
-			<td class="field"><input type="submit" value="Add Folder" /> or <a href="<?php echo get_url('plugin/mailer'); ?>">cancel</a></td>
+			<td class="field"><input type="submit" value="Add Folder" /> or <a href="<?php echo get_url('mailer/'); ?>">cancel</a></td>
 			<td></td>
 		</tr>
 	</table>

@@ -48,7 +48,7 @@
 	else {
 		echo '<div class="abuseReports"><img src="../wolf/plugins/mailer/images/misc/abuseProblem.png" align="center" alt="Clear!" /> You have had abuse reports made against you!<br />';
 		foreach($reports as $rpt) {
-			$campaignUrl = get_url('plugin/mailer/viewcampaign/');
+			$campaignUrl = get_url('mailer/viewcampaign/');
 			echo 'Reported by '.$rpt['email'].' on '.$rpt['date'].' about <a href="'.$campaignUrl.''.$rpt['campaign_id'].'">one of your campaigns</a>';
 		}	
 		echo '</div>';
@@ -62,7 +62,7 @@
 	}
 
 	if($settings['googleDisplay'] == '1') {
-		echo '<div class="abuseReports"><a href="'.get_url('plugin/mailer/setupAnalytics').'" target="_blank">Add your Google Analytics account</a><br />(you must sign in to Mailchimp and Google)<br />Alternatively, <a href="'.get_url('plugin/mailer/saveAnalyticsState').'">turn off this message</a><br /><strong>Please note, once you have authorised Google, you will be directed to your MailChimp account, not back to here.</strong></div>';
+		echo '<div class="abuseReports"><a href="'.get_url('mailer/setupAnalytics').'" target="_blank">Add your Google Analytics account</a><br />(you must sign in to Mailchimp and Google)<br />Alternatively, <a href="'.get_url('mailer/saveAnalyticsState').'">turn off this message</a><br /><strong>Please note, once you have authorised Google, you will be directed to your MailChimp account, not back to here.</strong></div>';
 	}
 
 
@@ -75,7 +75,7 @@
 <?php	if($settings['configured'] == 0) {	?>
 <p>Hey there, <?php echo $propername; ?> - I see you haven't finished setting up this plugin yet. You'll need to set it up properly before you can use it.</p>
 
-<p>I'd suggest you grab a banana and <a href="<?php echo get_url('plugin/mailer/documentation'); ?>">read the documentation</a> to get started.</p>
+<p>I'd suggest you grab a banana and <a href="<?php echo get_url('mailer/documentation'); ?>">read the documentation</a> to get started.</p>
 
 <?php	} else {	?>
 
@@ -83,13 +83,13 @@
 <p>What would you like to do today?</p>
 
 <p>&nbsp;</p>
-<p><a class="createButton" id="campaign" href="<?php echo get_url('plugin/mailer/campaigns/add'); ?>"><img src="../wolf/plugins/mailer/images/misc/add.png" align="top" alt="Add a Campaign" /> Create a New Campaign</a></p>
+<p><a class="createButton" id="campaign" href="<?php echo get_url('mailer/campaigns/add'); ?>"><img src="../wolf/plugins/mailer/images/misc/add.png" align="top" alt="Add a Campaign" /> Create a New Campaign</a></p>
 <p>&nbsp;</p>
-<p><a class="createButton" id="subscriber" href="<?php echo get_url('plugin/mailer/members/add'); ?>">Add a new Subscriber</a>
-<a class="createButton" id="groups" href="<?php echo get_url('plugin/mailer/groups/add'); ?>">Add a new Group</a></p>
+<p><a class="createButton" id="subscriber" href="<?php echo get_url('mailer/members/add'); ?>">Add a new Subscriber</a>
+<a class="createButton" id="groups" href="<?php echo get_url('mailer/groups/add'); ?>">Add a new Group</a></p>
 <p>&nbsp;</p>
-<p><a class="createButton" id="settings" href="<?php echo get_url('plugin/mailer/settings'); ?>"><img src="../wolf/plugins/mailer/images/misc/settingsHomePage.png" align="top" alt="Tweak your Settings" /> Adjust Settings</a>
-<a class="createButton" id="search" href="<?php echo get_url('plugin/mailer/search'); ?>"><img src="../wolf/plugins/mailer/images/misc/searchHomePage.png" align="middle" alt="Search" /> Search</a></p>
+<p><a class="createButton" id="settings" href="<?php echo get_url('mailer/settings'); ?>"><img src="../wolf/plugins/mailer/images/misc/settingsHomePage.png" align="top" alt="Tweak your Settings" /> Adjust Settings</a>
+<a class="createButton" id="search" href="<?php echo get_url('mailer/search'); ?>"><img src="../wolf/plugins/mailer/images/misc/searchHomePage.png" align="middle" alt="Search" /> Search</a></p>
 
 
 <?php } ?>

@@ -23,7 +23,7 @@
 	} else { ?>
 
 
-<p>For most purposes there should <strong>only be one list</strong>. If you need to add different mailing groups, <a href="<?php echo get_url('plugin/mailer/groups/add'); ?>">you can do so here</a>, but they should all be part of the same list.</p>
+<p>For most purposes there should <strong>only be one list</strong>. If you need to add different mailing groups, <a href="<?php echo get_url('mailer/groups/add'); ?>">you can do so here</a>, but they should all be part of the same list.</p>
 
 <p>If you do need to create a list, you need to do so at <a href="http://us1.admin.mailchimp.com/lists/">MailChimp</a> - they do not, and are not planning, support for adding lists via their API so you won't be able to do so from this interface. However, if you decide to add one, you will be able to manipulate and send email to it from here.</p>
 
@@ -39,7 +39,7 @@
 		foreach ($lists as $list) { ?>
 		<tr class="<?php echo odd_even(); ?>">
 			<td>
-				<a href="<?php echo get_url('plugin/mailer/viewlist/'); echo $list['id']; ?>"><?php echo $list['name']; ?></a></td>
+				<a href="<?php echo get_url('mailer/viewlist/'); echo $list['id']; ?>"><?php echo $list['name']; ?></a></td>
 			<td><?php echo $list['member_count']; ?></td>
 		</tr>
 <?php	}

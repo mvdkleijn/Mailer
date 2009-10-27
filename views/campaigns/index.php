@@ -53,7 +53,7 @@
 			?>
 
 		<tr class="<?php echo odd_even(); ?>">
-			<td><a href="<?php echo get_url('plugin/mailer/viewcampaign/'.$campaign['id'].''); ?>"><?php echo $campaign['title'] ?></a></td>
+			<td><a href="<?php echo get_url('mailer/viewcampaign/'.$campaign['id'].''); ?>"><?php echo $campaign['title'] ?></a></td>
 			<td><?php echo ucwords($campaign['type']); ?></td>
 			<td><?php if($campaign['status'] == 'save') { ?>Draft<?php } elseif($campaign['status'] == 'sent') { ?>Sent on: <?php echo $campaign['send_time'] ?><?php } ?></td>
 			<td><?php
@@ -69,7 +69,7 @@
 						foreach($lists as $list) { if($list['id'] == $campaign['list_id']) { echo $list['name']; } else { $listname = ''; } }
 			?></td>
 			<td><?php echo $campaign['emails_sent'] ?></td>
-			<td><a href="<?php echo get_url('plugin/mailer/campaignDelete/'.$campaign['id'].'') ?>" onclick="return confirm('Are you sure you wish to delete the campaign <?php echo $campaign['title'] ?>?\n\nThis is NOT REVERSIBLE!')"><img src="images/icon-remove.gif" align="bottom" alt="Delete" /></a></td>
+			<td><a href="<?php echo get_url('mailer/campaignDelete/'.$campaign['id'].'') ?>" onclick="return confirm('Are you sure you wish to delete the campaign <?php echo $campaign['title'] ?>?\n\nThis is NOT REVERSIBLE!')"><img src="images/icon-remove.gif" align="bottom" alt="Delete" /></a></td>
 		</tr>
 
 <?php

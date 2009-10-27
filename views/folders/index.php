@@ -11,7 +11,7 @@
 	} else {
 		
 	foreach ($folders as $folder) {
-		echo '<p class="button"><a href="'.get_url('plugin/mailer/viewfolder/'.$folder['folder_id'].'').'">';
+		echo '<p class="button"><a href="'.get_url('mailer/viewfolder/'.$folder['folder_id'].'').'">';
 		echo '<img src="../wolf/plugins/mailer/images/campaignFolder.png" align="middle" alt="Folder: '.$folder['name'].'" /> ';
 		echo $folder['name'];
 		echo '</a>';

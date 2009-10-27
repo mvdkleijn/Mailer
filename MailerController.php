@@ -25,7 +25,7 @@ class MailerController extends PluginController {
 		$api = new MCAPI($settings['apikey']);
 		$test = $api->campaignSendTest($cid, $emails);
 		Flash::set('success', __('A test email has been sent for this campaign'));
-		redirect(get_url('plugin/mailer/viewcampaign/'.$cid.''));
+		redirect(get_url('mailer/viewcampaign/'.$cid.''));
 	}
 
 	function sendcampaign($cid) {
@@ -33,7 +33,7 @@ class MailerController extends PluginController {
 		$api = new MCAPI($settings['apikey']);
 		$send = $api->campaignSendNow($cid);
 		Flash::set('success', __('This Campaign has been sent!'));
-		redirect(get_url('plugin/mailer/viewcampaign/'.$cid.''));
+		redirect(get_url('mailer/viewcampaign/'.$cid.''));
 	}
 
 	public function campaigns($page) {
@@ -99,7 +99,7 @@ class MailerController extends PluginController {
 				}
 				$i = $i + 1;
 			}
-			$redirectUrl = 'plugin/mailer/viewcampaign/'.$campaignId.'';
+			$redirectUrl = 'mailer/viewcampaign/'.$campaignId.'';
 			Flash::set('success', __('Your '.$_POST['campaignName'].' campaign has been added.'));
 			redirect(get_url(''.$redirectUrl.''));
 		}
@@ -117,7 +117,7 @@ class MailerController extends PluginController {
 		$api = new MCAPI($settings['apikey']);
 		$delete = $api->campaignDelete($cid);
 		Flash::set('success', __('This campaign has been deleted'));
-		redirect(get_url('plugin/mailer/campaigns'));
+		redirect(get_url('mailer/campaigns'));
 	}
 
 	public function folders($page) {
@@ -130,9 +130,9 @@ class MailerController extends PluginController {
 	}
 
 	function folderAdd() {
-		$redirectUrl = 'plugin/mailer/campaigns';
+		$redirectUrl = 'mailer/campaigns';
 		if($_POST['group'] != '') {
-			$redirectUrl = 'plugin/mailer/campaigns/add?template='.$_POST['template'].'&listid='.$_POST['listid'].'&group='.$_POST['group'].'';
+			$redirectUrl = 'mailer/campaigns/add?template='.$_POST['template'].'&listid='.$_POST['listid'].'&group='.$_POST['group'].'';
 		}
 		$folderName = filter_var($_POST['folderName'], FILTER_SANITIZE_STRING);
 		if($folderName != '') {
@@ -182,7 +182,7 @@ class MailerController extends PluginController {
 			}
 		}
 		Flash::set('success', __('Mailer settings have been saved'));
-		redirect(get_url('plugin/mailer/settings'));
+		redirect(get_url('mailer/settings'));
 	}
 
 	function saveAnalyticsState() {
@@ -192,7 +192,7 @@ class MailerController extends PluginController {
 					WHERE plugin_id='mailer' AND name='googleDisplay'";
 		$pdo = $__CMS_CONN__->prepare($sql);
 		$pdo->execute();
-		redirect(get_url('plugin/mailer/'));
+		redirect(get_url('mailer/'));
 	}
 
 	function setupAnalytics() {
@@ -229,13 +229,13 @@ class MailerController extends PluginController {
 			$add = $api->listUnsubscribe($_GET['listid'], $_GET['email']);
 			Flash::set('success', __(''.$_GET['email'].' has been unsubscribed'));
 			if($_GET['ref'] == 'members') {
-				redirect(get_url('plugin/mailer/members'));
+				redirect(get_url('mailer/members'));
 			}
 			elseif($_GET['name'] != '') {
-				redirect(get_url('plugin/mailer/groups/view?name='.$_GET['name'].'&list='.$_GET['listid'].''));
+				redirect(get_url('mailer/groups/view?name='.$_GET['name'].'&list='.$_GET['listid'].''));
 			}
 			elseif($_GET['list'] != '') {
-				redirect(get_url('plugin/mailer/viewlist/'.$_GET['list']));
+				redirect(get_url('mailer/viewlist/'.$_GET['list']));
 			}
 		}
 		elseif($page == 'add') {
@@ -269,7 +269,7 @@ class MailerController extends PluginController {
 		}
 		if($email == '') {
 			Flash::set('error', __('You must add an email address'));
-			redirect(get_url('plugin/mailer/members/add'));		
+			redirect(get_url('mailer/members/add'));		
 		}
 		else {
 			$merge_vars = array('FNAME'=>$firstname, 'LNAME'=>$lastname, 'INTERESTS'=>$groupdetails);
@@ -278,11 +278,11 @@ class MailerController extends PluginController {
 			$add = $api->listSubscribe($listid, $email, $merge_vars, $_POST['prefs'], $optin, $_POST['update'], $_POST['replace'], $welcome);
 			if ($firstname != '') {
 				Flash::set('success', __(''.$firstname.' '.$lastname.' has been added to the lists'));
-				redirect(get_url('plugin/mailer'));
+				redirect(get_url('mailer/'));
 			}
 			else {
 				Flash::set('success', __(''.$email.' has been added to the list'));
-				redirect(get_url('plugin/mailer/members'));
+				redirect(get_url('mailer/members'));
 			}
 		}
 	}
@@ -306,7 +306,7 @@ class MailerController extends PluginController {
 		}
 		if($email == '') {
 			Flash::set('error', __('You must add an email address'));
-			redirect(get_url('plugin/mailer/members/add'));
+			redirect(get_url('mailer/members/add'));
 		}
 		else {
 			$merge_vars = array('EMAIL'=>$newemail, 'FNAME'=>$firstname, 'LNAME'=>$lastname, 'INTERESTS'=>$groupdetails);
@@ -315,11 +315,11 @@ class MailerController extends PluginController {
 			$add = $api->listUpdateMember($listid, $email, $merge_vars, $_POST['prefs'], true);
 			if ($firstname != '') {
 				Flash::set('success', __(''.$firstname.' '.$lastname.' has been updated'));
-				redirect(get_url('plugin/mailer/members'));
+				redirect(get_url('mailer/members'));
 			}
 			else {
 				Flash::set('success', __(''.$email.' has been updated'));
-				redirect(get_url('plugin/mailer/members'));
+				redirect(get_url('mailer/members'));
 			}
 		}
 	}
@@ -347,11 +347,11 @@ class MailerController extends PluginController {
 			$api = new MCAPI($settings['apikey']);
 			$add = $api->listInterestGroupAdd($listid, $groupname);
 			Flash::set('success', __(''.$groupname.' has been added to your groups'));
-			redirect(get_url('plugin/mailer/groups'));
+			redirect(get_url('mailer/groups'));
 		}
 		else {
 			Flash::set('error', __('You need to add a group name'));
-			redirect(get_url('plugin/mailer/groups/add'));
+			redirect(get_url('mailer/groups/add'));
 		}
 	}
 
@@ -363,7 +363,7 @@ class MailerController extends PluginController {
 		$api = new MCAPI($settings['apikey']);
 		$del = $api->listInterestGroupDel($listid, $groupname);
 		Flash::set('success', __(''.$groupname.' has been deleted from your groups'));
-		redirect(get_url('plugin/mailer/groups'));
+		redirect(get_url('mailer/groups'));
 	}
 
 	function groupUpdate($string) {
@@ -374,7 +374,7 @@ class MailerController extends PluginController {
 		$api = new MCAPI($settings['apikey']);
 		$del = $api->listInterestGroupUpdate($listid, $oldname, $newname);
 		Flash::set('success', __(''.$oldname.' has been updated to '.$newname.''));
-		redirect(get_url('plugin/mailer/groups'));
+		redirect(get_url('mailer/groups'));
 	}
 
 	public function viewgroups($id) {

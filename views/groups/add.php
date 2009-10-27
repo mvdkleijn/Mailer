@@ -12,7 +12,7 @@
 ?>
 
 
-<form action="<?php echo get_url('plugin/mailer/groupAdd'); ?>" method="post">
+<form action="<?php echo get_url('mailer/groupAdd'); ?>" method="post">
 	<table class="fieldset" cellpadding="0" cellspacing="0" border="0">
 		<tr>
 			<td class="label"><label for="groupname">Name</label></td>
@@ -34,7 +34,7 @@
 		</tr>
 		<tr>
 			<td class="label"><label for="submit">&nbsp;</label></td>
-			<td class="field"><input type="submit" value="Add Group" /> or <a href="<?php echo get_url('plugin/mailer/groups'); ?>">cancel</a></td>
+			<td class="field"><input type="submit" value="Add Group" /> or <a href="<?php echo get_url('mailer/groups'); ?>">cancel</a></td>
 			<td></td>
 		</tr>
 	</table>

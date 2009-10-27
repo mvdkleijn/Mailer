@@ -10,7 +10,7 @@
 	} else { 
 ?>
 
-<form action="<?php echo get_url('plugin/mailer/memberAdd'); ?>" method="post">
+<form action="<?php echo get_url('mailer/memberAdd'); ?>" method="post">
 	<table class="fieldset" cellpadding="0" cellspacing="0" border="0">
 		<tr>
 			<td class="label"><label for="firstname">First Name</label></td>
@@ -90,7 +90,7 @@
 		</tr>
 		<tr>
 			<td class="label"><label for="submit">&nbsp;</label></td>
-			<td class="field"><input type="submit" value="Add Subscriber" /> or <a href="<?php echo get_url('plugin/mailer/index'); ?>">cancel</a></td>
+			<td class="field"><input type="submit" value="Add Subscriber" /> or <a href="<?php echo get_url('mailer/index'); ?>">cancel</a></td>
 			<td></td>
 		</tr>
 	</table>
