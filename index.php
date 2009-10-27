@@ -33,6 +33,9 @@ Dispatcher::addRoute(array(
 
 	'/mailer/campaignDelete/:any'	=>	'/plugin/mailer/campaignDelete/$1',
 
+	'/mailer/sendtest/:any'			=>	'/plugin/mailer/sendtest/$1',
+	'/mailer/sendcampaign/:any'		=>	'/plugin/mailer/sendcampaign/$1',
+
 	'/mailer/folders'				=>	'/plugin/mailer/folders',
 	'/mailer/folders/:any'			=>	'/plugin/mailer/folders/$1',
 	'/mailer/folderAdd'				=>	'/plugin/mailer/folderAdd',
