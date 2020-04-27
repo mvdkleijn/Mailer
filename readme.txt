@@ -1,3 +1,6 @@
+**Status:** No longer active / archived
+
+
 == WHAT IT IS ==
 
 The Mailer plugin is a mailing list management plugin that uses the MailChimp API
